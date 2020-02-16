@@ -76,6 +76,12 @@
         score = Number(score.substring(6))*5;  
         console.log(score);
         document.getElementById("score").innerHTML = score;   
+        d = {
+            data: score,
+            sheetUrl:"https://docs.google.com/spreadsheets/d/1_qOJfTSbN9qg8hDg4bsrcG8_VTsWioTIo4C7FkbiQdo/edit#gid=0",
+            sheetTag:"sheet2"
+        };
+        $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);
 
     </script>
 </body>
