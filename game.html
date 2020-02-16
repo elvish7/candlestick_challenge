@@ -190,10 +190,18 @@
                 window.score += 1;
             }
             //change page
-            n = Number(document.getElementById("number").innerHTML);
             if(n == 20){
                 var s = window.score;
                 location.href = 'score.html?para='+s;
+                d = {
+                data: score,
+                sheetUrl:"https://docs.google.com/spreadsheets/d/1_qOJfTSbN9qg8hDg4bsrcG8_VTsWioTIo4C7FkbiQdo/edit#gid=0",
+                sheetTag:"sheet2"
+                };
+                $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);
+            }
+            else{
+                n = Number(document.getElementById("number").innerHTML);
             };
             document.getElementById("number").innerHTML = n+1;
             
