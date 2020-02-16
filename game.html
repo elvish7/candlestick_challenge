@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Import D3.js -->
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<!-- Our customized D3 candlestick -->
+	<script src="./d3-plot.js"></script>
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Cabin+Condensed&display=swap');
+        h2 {
+            font-family: 'Cabin Condensed', sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            }
+
+        .card {
+            height: 320px;
+            width: 320px;
+            border-width: 2px;
+        }
+        .buttons {
+            display:flex;
+            justify-content: center;
+        }
+        .btn {
+            display: inline;
+            justify-content: center;
+            width: 100px;
+            margin-top: 20px;
+            font-family: 'Cabin Condensed', sans-serif;
+        }
+        #bt1 {
+            margin-right: 20px;
+        }
+        #page {
+            float: right;
+            margin-top: 20px;
+            margin-right: 20px;
+            font-size: 25px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+    </style>
+</head>
+  <body>
+    <h2>
+        Recognize the real image!
+    </h2>
+
+    <!-- Plot candlestick here -->
+    <div class="card mx-auto">
+        <div class="imgs" id="candlestick"></div> 
+    </div>
+
+    <div class="buttons">
+        <button type="button" class="btn btn-outline-dark" id="bt1" onclick="plot('real')">Real</button>
+        <button type="button" class="btn btn-outline-dark" onclick="plot('fake')">Fake</button>
+    </div>
+    <div id="page">
+        <a id="number">1</a>
+        <a>/20</a>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+    
+	    function main_plot(data) {
+            // Parameters
+            var svg_pars;
+            var w = 310;
+            var h = 310;
+            var margin = {top: 20, bottom: 20, left: 20, right: 20};
+            var axes_margin = 10;
+            var width = w - margin.left - margin.right - axes_margin*2;
+            var height = h - margin.top - margin.bottom;
+            var margin_scaler = d3.scaleLinear()
+                                .domain([100, 0])
+                                .range([1, 10]);
+	        var candlestick_margin = margin_scaler(data.length);
+
+	        maxHigh = d3.max(data, function(d) {
+	            return d.high;
+	        })
+
+	        minLow = d3.min(data, function(d) {
+	            return d.low;
+	        })
+
+            d3.select("#candlestick").select("svg").remove();
+
+	        var svg = d3.select("#candlestick")
+	                    .append("svg")
+	                    .attr("id", "chart")
+	                    .attr("width", w)
+	                    .attr("height", h)
+	                    .attr("preserveAspectRatio", "xMinYMid") // responsive
+	                    .attr("viewBox", "0 0 " + w + " " + h);  // responsive
+
+	        // Main candlestick plot for selection
+	        svg_pars = plot_candlestick.call(svg, {
+	            classname: "candlestick",
+	            height: height,
+	            width: width,
+	            ohlc: data,
+	            minLow: minLow,
+	            maxHigh: maxHigh,
+	            margin: margin,
+	            axes_margin: axes_margin,
+	            candlestick_margin: candlestick_margin,
+	            color_up:  "#ff4444",
+	            color_down: "#11B21F",//"#2d3747",
+	            xaxis: true,
+	            yaxis: true,
+	        });
+
+	        // For Responsive
+	        //   1. SVG: main candlestick
+	        var chart = $("#chart"); //'$':jQuary
+	        var aspect = chart.width() / chart.height();
+	        var candlestick_block = chart.parent();
+	        var targetWidth = candlestick_block.width();
+	        chart.attr("width", targetWidth);
+	        chart.attr("height", Math.round(targetWidth / aspect));
+	        $("#candlestick").attr("style", "height: " + chart.height() + "px;");
+	        //$(selector).unbind(event,function) delete dealing process from specific element
+	        $(window).unbind().on("resize", function() {
+	            var targetWidth = candlestick_block.width();
+	            chart.attr("width", targetWidth);
+	            chart.attr("height", Math.round(targetWidth / aspect));
+	        }).trigger("resize", function() {
+	            $("#candlestick").attr("style", "height: " + chart.height() + "px;");
+	        });
+	    };
+	</script>
+
+    <script>
+        $(function() {
+            $.get('https://spreadsheets.google.com/feeds/list/1s5YS2PzHlBqGJK_KFtQQ2-e8pcPPcpClux6uOiMR7v0/1/public/values?alt=json', function(data) {
+                var d = data.feed.entry;
+                window.category = 'real';
+                window.score = 0;
+                items = [];
+                for(var i in d) {
+                    var item = {};
+                    item.open = d[i].gsx$open.$t;
+                    item.high = d[i].gsx$high.$t;
+                    item.low = d[i].gsx$low.$t;
+                    item.close = d[i].gsx$close.$t;
+                    items.push(item);
+                }
+                console.table(items);
+                plot('first');    
+            });
+        });
+
+        function plot(ans){          
+            if(ans != 'first'){
+                save_data(ans);
+                plot_img(items);      
+                change_page(ans);
+            }
+            else{
+                plot_img(items);   
+            }
+            
+        };
+
+        function change_page(ans){
+            // count score
+            if(ans == window.category){
+                window.score += 1;
+            }
+            //change page
+            n = Number(document.getElementById("number").innerHTML);
+            if(n == 20){
+                var s = window.score;
+                location.href = 'score.html?para='+s;
+            };
+            document.getElementById("number").innerHTML = n+1;
+            
+        };
+
+    </script>
+    <script>
+        function plot_img(items){
+            // get random index
+            function randomInteger(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            window.idx = randomInteger(1,items.length);
+            console.log('idx now========'+idx);
+            // get data
+            var data = [];
+            for(i=idx;i<=(idx+14);i++){
+                var d = {};
+                d.open = items[i].open;
+                d.high = items[i].high;
+                d.low = items[i].low;
+                d.close = items[i].close;
+                data.push(d);
+            };                    
+            console.log(data);
+            console.log(data.length);
+            
+            main_plot(data);
+        }
+
+        function save_data(ans){
+            var idx = window.idx;
+            var ans = ans;
+            d = {};
+            d = {
+                data: 'real,' + idx + ',' + ans,
+                sheetUrl:"https://docs.google.com/spreadsheets/d/1_qOJfTSbN9qg8hDg4bsrcG8_VTsWioTIo4C7FkbiQdo/edit#gid=0",
+                sheetTag:"sheet1"
+            };
+            $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);
+        }
+    </script>
+  </body>
+</html>
+
