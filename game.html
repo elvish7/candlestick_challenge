@@ -193,20 +193,24 @@
             n = Number(document.getElementById("number").innerHTML);
             if(n == 20){
                 var s = window.score;
-                // save score
-                d = {
-                data: score,
-                sheetUrl:"https://docs.google.com/spreadsheets/d/1_qOJfTSbN9qg8hDg4bsrcG8_VTsWioTIo4C7FkbiQdo/edit#gid=0",
-                sheetTag:"sheet2"
-                };
-                $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);
-                // go to score board
+                save_score(s);
                 location.href = 'score.html?para='+s;
             };
             document.getElementById("number").innerHTML = n+1;
             
             
         };
+
+        function save_score(score){
+            var score = Number(score)*5;
+            d = {};
+            d = {
+                data: score,
+                sheetUrl:"https://docs.google.com/spreadsheets/d/1_qOJfTSbN9qg8hDg4bsrcG8_VTsWioTIo4C7FkbiQdo/edit#gid=1390343063&range=C:C",
+                sheetTag:"sheet2"
+            };
+            $.get('https://script.google.com/macros/s/AKfycbya3T3LsVHlwqjkeDrLvt48Xgv9RwroLInNaQkVbw9Bk1QmSAU/exec', d);
+        }
 
     </script>
     <script>
