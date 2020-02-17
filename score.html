@@ -15,6 +15,7 @@
             display: flex;
             justify-content: center;
             margin: 3vh;
+            height: 20vh;
         }
         .scoreboard{
             height: 85%;
@@ -29,6 +30,7 @@
         }
         h1 {
             font-family: 'Acme', sans-serif;
+            font-size: 10vh;
             margin-top: 2.5vh;
         }
         #score {
@@ -39,15 +41,20 @@
             font-family: 'Josefin Sans', sans-serif;
         }
         #fb {
-            width: 140px;
-            height:40px;
+            width: 28vh;
+            height: 9vh;
             display: flex;
             margin: 0 auto;
             margin-top: 2vh;
             margin-bottom: 3vh;
         }
+        #replay_btn {
+            width: 28vh;
+            height: 9vh;
+            font-size: 2.5vh;
+        }
         #replay {
-            width: 30px;
+            width: 8vh;
         }
 
     </style>
@@ -62,7 +69,7 @@
             <h1>Your Score</h1>
             <a id=score></a>
         </div>
-        <button type="button" class="btn btn-outline-light" onclick="again()">
+        <button type="button" class="btn btn-outline-light" onclick="again()" id="replay_btn">
             <img src="./img/replay.png" id="replay">
             Play Again</button>
         <img src="./img/fb-share.png" id="fb">
