@@ -10,7 +10,15 @@
     
     <style type="text/css">
     @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
-
+    
+    .outer {
+      display: table;
+      height: 100%;
+    }
+    .container-fluid {
+        display: table-cell;
+        vertical-align: middle;
+    }
     .img-fluid{
       width: 100%;
     }
@@ -47,13 +55,15 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
-    <div class="container-fluid">
-        <img src="./img/cd.PNG" class="img-fluid" alt="Responsive image">
-        <h1>CANDLESTICK CHALLENGE!</h1>
-        <div class="buttons">
-            <button type="button" class="btn btn-outline-dark" id="bt1" data-toggle="modal" data-target="#Modal">Professional</button>
-            <button type="button" class="btn btn-outline-dark" id="bt2" data-toggle="modal" data-target="#Modal">Amateur</button>
-        </div>
+    <div class="outer">
+      <div class="container-fluid">
+          <img src="./img/cd.PNG" class="img-fluid" alt="Responsive image">
+          <h1>CANDLESTICK CHALLENGE!</h1>
+          <div class="buttons">
+              <button type="button" class="btn btn-outline-dark" id="bt1" data-toggle="modal" data-target="#Modal">Professional</button>
+              <button type="button" class="btn btn-outline-dark" id="bt2" data-toggle="modal" data-target="#Modal">Amateur</button>
+          </div>
+      </div>
     </div>
 
     <!-- Modal -->
