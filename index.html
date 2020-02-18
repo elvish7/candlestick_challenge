@@ -17,9 +17,16 @@
     .container {
       margin:auto;
     }
-    .img-fluid{
+    #img1{
       width: 100%;
+      display: block;
     }
+    #img2 {
+      width: 100%;
+      display: none;
+    }
+    @media only screen and (max-width: 768px) { 
+      .img1 { display: none; } .img2 { display: block; } }
 
     h1 {
       font-family: 'Anton', sans-serif;
@@ -55,7 +62,8 @@
     
     <div class="outer">
       <div class="container">
-          <img src="./img/cd2.png" class="img-fluid" alt="Responsive image">
+          <img src="./img/cd.png" class="img-fluid" alt="Responsive image" id="img1">
+          <img src="./img/cd2.png" class="img-fluid" alt="Responsive image" id="img2">
           <h1>CANDLESTICK CHALLENGE!</h1>
           <div class="buttons">
               <button type="button" class="btn btn-outline-dark" id="bt1" data-toggle="modal" data-target="#Modal">Professional</button>
