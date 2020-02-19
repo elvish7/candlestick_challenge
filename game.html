@@ -280,6 +280,12 @@
                 plot('real');
               });
             });
+            $("#btn1").on("touchstart", function(){ 
+                $(this).removeClass("btn");
+            });
+            $("#btn1").on("touchend", function(){ 
+                $(this).addClass("btn");
+            });
         </script>
     </body>
 </html>
