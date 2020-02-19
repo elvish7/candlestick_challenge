@@ -75,7 +75,9 @@
         <button type="button" class="btn btn-outline-light" onclick="again()" id="replay_btn">
             <img src="./img/replay.png" id="replay">
             Play Again</button>
-        <img src="./img/fb-share.png" id="fb">
+        <a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));">
+            <img src="./img/fb-share.png" id="fb">
+        </a>
     </div>
     <script>
         function again(){
