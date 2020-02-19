@@ -109,7 +109,7 @@
             </div>
             <!-- Modal Footer-->
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="enter" onclick="test()">Start</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="enter" onclick="enter()">Start</button>
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@
         };
 
       function enter(){
-          var player = $('#Modal #name').val();
+          var player = $('#name').val();
           var type = window.type;
           d = {};
           d = {
