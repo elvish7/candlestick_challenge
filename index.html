@@ -12,14 +12,18 @@
     @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
     
     .outer {
-      height: 100%;
-      vertical-align: middle ;
+      position: relative;
     }
-    .container {
+    .container-fluid{
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
       margin:auto;
     }
     #img1{
       width: 100%;
+      height: 70vh;
       display: block;
     }
     #img2 {
@@ -30,7 +34,7 @@
     /*phone small screen*/
     @media only screen and (max-width : 480px) {
       #img1 {
-        margin-top: 50%;
+        top: 50%;
       }  
     }
     /*27 inchs large screen*/
@@ -73,7 +77,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
     <div class="outer">
-      <div class="container">
+      <div class="container-fluid">
           <img src="./img/cd.PNG" class="img-fluid" alt="Responsive image" id="img1">
           <img src="./img/cd2.png" class="img-fluid" alt="Responsive image" id="img2">
           <h1>CANDLESTICK CHALLENGE!</h1>
@@ -82,35 +86,36 @@
               <button type="button" class="btn btn-outline-dark" id="bt2" data-toggle="modal" data-target="#Modal">Amateur</button>
           </div>
       </div>
-    </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        
-        <!-- Modal Header-->
-          <div class="modal-header">
-            <h5 class="modal-title" id="ModalLabel">ENTER YOUR NAME</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <!-- Modal Body-->
-          <div class="modal-body">
-            <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">@</span>
+      <!-- Modal -->
+      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          
+          <!-- Modal Header-->
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalLabel">ENTER YOUR NAME</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="name">
-          </div>
-          </div>
-          <!-- Modal Footer-->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="enter">Start</button>
+          <!-- Modal Body-->
+            <div class="modal-body">
+              <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="name">
+            </div>
+            </div>
+            <!-- Modal Footer-->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="enter">Start</button>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
     <script>
