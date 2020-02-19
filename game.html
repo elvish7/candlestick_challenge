@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="btn btn-outline-dark" id="bt1" onclick="plot('real')">Real</button>
+                    <button type="button" class="btn btn-outline-dark" id="bt1">Real</button>
                     <button type="button" class="btn btn-outline-dark" onclick="plot('fake')">Fake</button>
                 </div>
                 <div id="page">
@@ -266,6 +266,13 @@
                 };
                 $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);
             }
+        </script>
+        <script>
+            $(document).ready(function() {
+              $('#bt1').on('click touchstart', function() {
+                plot('real');
+              });
+            });
         </script>
     </body>
 </html>
