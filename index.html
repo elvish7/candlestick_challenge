@@ -118,15 +118,15 @@
     </div>
 
     <script>
-      $('#bt1').on('click touchstart', function(){
+      $('#bt1').on('click', function(){
           window.type = document.getElementById("bt1").innerHTML;
         });
 
-      $('#bt2').on('click touchstart', function(){
+      $('#bt2').on('click', function(){
           window.type = document.getElementById("bt2").innerHTML;
         });
 
-      $('#enter').on('click touchstart', function(){
+      $('#enter').on('click', function(){
           var player = $('#Modal #name').val();
           var type = window.type;
           d = {};
@@ -135,7 +135,7 @@
               sheetUrl:"https://docs.google.com/spreadsheets/d/1_qOJfTSbN9qg8hDg4bsrcG8_VTsWioTIo4C7FkbiQdo/edit#gid=0",
               sheetTag:"sheet2"
             };
-            $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);  
+          $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);  
           location.href = 'game.html';
         });
     </script>
