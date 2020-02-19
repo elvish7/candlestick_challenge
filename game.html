@@ -54,12 +54,9 @@
                 font-family: 'Cabin Condensed', sans-serif;
                 font-size: 3.5vh;
             }
-            /*phone small screen*/
-            @media only screen and (max-width : 480px) {
-                .btn:hover,
-                .btn.hover {
-                    background-position: 0 0px;
-                } 
+            .mobileHoverFix:hover,
+            .mobileHoverFix.hover {
+              background-color: #337ab7;
             }
             #bt1 {
                 margin-right: 4vh;
@@ -85,7 +82,7 @@
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="btn btn-outline-dark" id="bt1">Real</button>
+                    <button type="button" class="btn btn-outline-dark" id="bt1" onclick="plot('real')">Real</button>
                     <button type="button" class="btn btn-outline-dark" onclick="plot('fake')">Fake</button>
                 </div>
                 <div id="page">
@@ -275,16 +272,14 @@
             }
         </script>
         <script>
-            $(document).ready(function() {
-              $('#bt1').on('click touchstart', function() {
-                plot('real');
-              });
+            $(".btn").on("click", function() {
+              $(this).blur(); 
             });
-            $("#btn1").on("touchstart", function(){ 
-                $(this).removeClass("btn");
+            $(".btn").on("touchstart", function() {
+              $(this).removeClass("mobileHoverFix");
             });
-            $("#btn1").on("touchend", function(){ 
-                $(this).addClass("btn");
+            $(".btn").on("touchend", function() {
+              $(this).addClass("mobileHoverFix");
             });
         </script>
     </body>
