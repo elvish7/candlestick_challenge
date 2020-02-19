@@ -118,15 +118,15 @@
     </div>
 
     <script>
-      $('#bt1').on('click', function(){
+      $('#bt1').on('click touchstart', function(){
           window.type = document.getElementById("bt1").innerHTML;
         });
 
-      $('#bt2').on('click', function(){
+      $('#bt2').on('click touchstart', function(){
           window.type = document.getElementById("bt2").innerHTML;
         });
 
-      $('#enter').on('click', function(){
+      $('#enter').on('click touchstart', function(){
           var player = $('#Modal #name').val();
           var type = window.type;
           d = {};
