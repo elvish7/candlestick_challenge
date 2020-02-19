@@ -179,7 +179,6 @@
             $(function() {
                 $.get('https://spreadsheets.google.com/feeds/list/1s5YS2PzHlBqGJK_KFtQQ2-e8pcPPcpClux6uOiMR7v0/1/public/values?alt=json', function(data) {
                     var d = data.feed.entry;
-                    window.category = 'real';
                     window.score = 0;
                     items = [];
                     for(var i in d) {
@@ -209,7 +208,7 @@
 
             function change_page(ans){
                 // count score
-                if(ans == window.category){
+                if(ans == window.data_type){
                     window.score += 1;
                 }
                 //change page
@@ -242,8 +241,29 @@
                 function randomInteger(min, max) {
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
-                window.idx = randomInteger(1,items.length);
+                var d_type = randomInteger(1,3);
+
+                if(d_type == 1){ // real data
+                    window.idx = randomInteger(0,1500);
+                    window.data_type = 'real';
+                    window.category = 'real';
+                }
+                else if(d_type == 2){ // cvae
+                    window.idx = randomInteger(1501,3000);
+                    window.data_type = 'fake';
+                    window.category = 'cvae';
+                }
+                else{ // adversarial
+                    window.idx = randomInteger(3001,items.length);
+                    window.data_type = 'fake';
+                    window.category = 'adversarial';
+                }
+                
+                // test
                 console.log('idx now========'+idx);
+                console.log('data type:'+data_type);
+                console.log('category:'+category);
+
                 // get data
                 var data = [];
                 for(i=idx;i<=(idx+14);i++){
@@ -254,18 +274,17 @@
                     d.close = items[i].close;
                     data.push(d);
                 };                    
-                console.log(data);
-                console.log(data.length);
                 
                 main_plot(data);
             }
 
             function save_data(ans){
+                var category = window.category;
                 var idx = window.idx;
                 var ans = ans;
                 d = {};
                 d = {
-                    data: 'real,' + idx + ',' + ans,
+                    data: category + ',' + idx + ',' + ans,
                     sheetUrl:"https://docs.google.com/spreadsheets/d/1_qOJfTSbN9qg8hDg4bsrcG8_VTsWioTIo4C7FkbiQdo/edit#gid=0",
                     sheetTag:"sheet1"
                 };
