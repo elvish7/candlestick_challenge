@@ -197,8 +197,8 @@
             function plot(ans){          
                 if(ans != 'first'){
                     save_data(ans);
-                    plot_img(items);      
                     change_page(ans);
+                    plot_img(items);        
                 }
                 else{
                     plot_img(items);   
@@ -210,7 +210,11 @@
                 // count score
                 if(ans == window.data_type){
                     window.score += 1;
+
                 }
+                console.log(ans);
+                console.log(window.data_type);
+                console.log(score);
                 //change page
                 n = Number(document.getElementById("number").innerHTML);
                 if(n == 20){
