@@ -210,11 +210,9 @@
                 // count score
                 if(ans == window.data_type){
                     window.score += 1;
-
                 }
-                console.log(ans);
-                console.log(window.data_type);
-                console.log(score);
+
+                console.log('score:'+score);
                 //change page
                 n = Number(document.getElementById("number").innerHTML);
                 if(n == 20){
@@ -248,17 +246,17 @@
                 var d_type = randomInteger(1,3);
 
                 if(d_type == 1){ // real data
-                    window.idx = randomInteger(0,199)*10;
+                    window.idx = randomInteger(0,399)*10;
                     window.data_type = 'real';
                     window.category = 'real';
                 }
                 else if(d_type == 2){ // adversarial
-                    window.idx = randomInteger(200,399)*10;
+                    window.idx = randomInteger(400,799)*10;
                     window.data_type = 'fake';
                     window.category = 'adversarial';
                 }
                 else{ // vae
-                    window.idx = randomInteger(400,599)*10;
+                    window.idx = randomInteger(800,1199)*10;
                     console.log(idx)
                     window.data_type = 'fake';
                     window.category = 'vae';
