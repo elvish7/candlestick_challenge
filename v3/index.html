@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+    
+    .outer {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .container-fluid{
+      margin:auto;
+    }
+    #img1{
+      width: 100%;
+      height: 70vh;
+      display: block;
+    }
+    #img2 {
+      display: none;
+      width: 100%;
+    }
+
+    /*phone small screen*/
+    @media only screen and (max-width : 480px) {
+      #img1 {
+        margin-top: 35%;
+        height: 40vh;
+      }  
+    }
+    /*27 inchs large screen*/
+    @media only screen and (min-width: 3000px) { 
+      #img1 { display: none; } 
+      #img2 { display: block; 
+              height: 65vh;
+              } }
+
+    h1 {
+      font-family: 'Anton', sans-serif;
+		  text-align: center;
+		  font-size: 4.5vw;
+      margin-top: 8vh;
+		}
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+    #bt1 {
+      margin-right: 10vw;
+      margin-bottom: 2vw;
+      width: 18vw;
+      font-size: 2vw;
+    }
+    #bt2 {
+      width: 18vw;
+      margin-bottom: 2vw;
+      font-size: 2vw;
+    }
+    </style>
+
+  </head>
+  <body>
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <div class="outer">
+      <div class="container-fluid">
+          <img src="./img/cd.PNG" class="img-fluid" alt="Responsive image" id="img1">
+          <img src="./img/cd2.png" class="img-fluid" alt="Responsive image" id="img2">
+          <h1>CANDLESTICK CHALLENGE!</h1>
+          <div class="buttons">
+              <button type="button" class="btn btn-outline-dark" id="bt1" data-toggle="modal" data-target="#Modal" onclick="input_type('bt1')">Professional</button>
+              <button type="button" class="btn btn-outline-dark" id="bt2" data-toggle="modal" data-target="#Modal" onclick="input_type('bt2')">Amateur</button>
+          </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          
+          <!-- Modal Header-->
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalLabel">ENTER YOUR NAME</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <!-- Modal Body-->
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="name">
+              </div>
+            </div>
+            <!-- Modal Footer-->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="enter" onclick="enter()">Start</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      function input_type(id){
+          window.type = document.getElementById(id).innerHTML;
+        };
+
+      function enter(){
+          var player = $('#Modal #name').val();
+          var type = window.type;
+          d = {};
+          d = {
+              data: player + ',' + type,
+              sheetUrl:"https://docs.google.com/spreadsheets/d/18RZBgewZ8inMHLjAolGZF3Dya6nf0SmIznN5F_-BWsg/edit#gid=0",
+              sheetTag:"sheet2"
+            };
+          $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);  
+          location.href = 'game.html';
+        };
+    </script>
+  
+  </body>
+</html>
