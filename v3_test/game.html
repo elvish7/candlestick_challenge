@@ -444,6 +444,13 @@
             $(".hovereffect").on("click", function() {
               $(this).addClass("mobileHoverFix");
             });*/
+            $("#candlestick1").on("touchend", function() {
+              plot(0);
+            });
+            $("#candlestick2").on("touchend", function() {
+              plot(1);
+            });
+
         </script>
     </body>
 </html>
