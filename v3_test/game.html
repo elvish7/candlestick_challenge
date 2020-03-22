@@ -23,6 +23,9 @@
                 margin-top: 10vh;
                 margin-bottom: 50px;
                 }
+            p {
+                display: none;
+            }
 
             .card {
                 width: 60vh;
@@ -130,6 +133,10 @@
 
             @media (hover: none) {
                 /* behaviour for touch browsers */
+                p {
+                    display: block;
+                    margin-top: -10px;
+                }
                 .overlay{
                     display: none;
                 }
@@ -137,7 +144,7 @@
             
             .mobileHoverFix:hover,
             .mobileHoverFix.hover {
-              background-color: rgba(0, 0, 0, 0.4);
+              background-color: rgba(0, 0, 0, 0.3);
             }
 
             /*
@@ -154,6 +161,7 @@
                 <h2 id="title">
                     Which one is the real image?
                 </h2>
+                <p class="text-center">Click the image you choose</p>
 
                 <!-- Plot candlestick here -->
                 <div class="container-fluid">
