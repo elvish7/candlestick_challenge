@@ -128,12 +128,13 @@
               box-shadow: 0 0 5px #fff;
             }
 
-
-            /*
-            .mobileHoverFix:hover .overlay,
-            .mobileHoverFix.hover.overlay{
-              background-color: rgba(0, 0, 0, 0.4);
+            @media (hover: none) {
+                /* behaviour for touch browsers */
+                .overlay{
+                    display: none;
+                }
             }
+            
 
             /*
             html.can-touch .hovereffect:hover .overlay{
@@ -433,12 +434,12 @@
             /*
             $(".hovereffect").on("click", function() {
               $(this).blur(); 
-            });*/
+            });
             $(".hovereffect").on("touchstart", function() {
-              $(".overlay").show();
+              $(this).removeClass("mobileHoverFix");
             });
             $(".hovereffect").on("touchend", function() {
-              $(".overlay").hide();
+              $(this).addClass("mobileHoverFix");
             });/*
             $(".hovereffect").on("click", function() {
               $(this).addClass("mobileHoverFix");
