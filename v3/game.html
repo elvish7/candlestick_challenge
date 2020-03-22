@@ -127,6 +127,12 @@
             .hovereffect a.info:hover {
               box-shadow: 0 0 5px #fff;
             }
+
+            .mobileHoverFix:hover,
+            .mobileHoverFix.hover {
+              background-color: white;
+              color: black;
+            }
             
 
         </style>
@@ -410,13 +416,13 @@
             }
         </script>
         <script>
-            $(".btn").on("click", function() {
+            $(".info").on("click", function() {
               $(this).blur(); 
             });
-            $(".btn").on("touchstart", function() {
+            $(".info").on("touchstart", function() {
               $(this).removeClass("mobileHoverFix");
             });
-            $(".btn").on("touchend", function() {
+            $(".info").on("touchend", function() {
               $(this).addClass("mobileHoverFix");
             });
         </script>
