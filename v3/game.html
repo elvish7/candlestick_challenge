@@ -429,22 +429,11 @@
             }
         </script>
         <script>
-            /*
-            $(".info").on("click", function() {
-              $(this).blur(); 
-            });
-            
             $(".info").on("touchstart", function() {
-              $(this).removeClass("overlay");
+              $(".overlay").hide();
             });
-            $(".info").on("touchend", function() {
-              $(this).addClass("mobileHoverFix");
-            });*/
-            $(".card").on("touchstart", function() {
-              $(".overlay").css("background-color","rgba(0, 0, 0, 0.4)"); 
-            });
-            $(".info").on("touchend", function() {
-              $(".overlay").css("background-color", "none"); 
+            $(".card").on("touchend", function() {
+              $(".overlay").show();
             });
         </script>
     </body>
