@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Boogaloo|Josefin+Sans|Reem+Kufi&display=swap');
+    
+    .outer {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .container-fluid{
+      margin:auto;
+      padding-left: 10vh;
+      padding-right: 10vh;
+    }
+    h1 {
+    	font-family: 'Josefin Sans', sans-serif;
+    	margin-top: 20px;
+    	margin-bottom: 20px;
+    }
+
+    p {
+    	font-family:  Microsoft YaHei; /*verdana, Times New Roman,*/
+    }
+
+    h5 {
+    	font-family:  Microsoft YaHei;
+    	margin-bottom: 20px;
+    }
+    .col-md-4 {
+    	text-align: center;
+    }
+    .border-right {
+    	border-right: 1px solid #ddd;
+    	height: 70%;
+    }
+    /*small screen*/
+    @media only screen and (max-width : 760px) {
+    	.border-right {
+    		border-right: none !important;
+    		border-bottom: 1px solid #ddd;
+    		margin-bottom: 20px;
+    	}
+    }
+    @media only screen and (min-height: 2000px) {
+        .col-md-4 {
+        	height: 80vh;
+        }
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+    #bt1 {
+      margin-right: 10vw;
+      margin-bottom: 2vw;
+      width: 18vw;
+      font-size: 2vw;
+      font-family: 'Reem Kufi', sans-serif;
+    }
+    #bt2 {
+      width: 18vw;
+      margin-bottom: 2vw;
+      font-size: 2vw;
+      font-family: 'Reem Kufi', sans-serif;
+    }
+    #ready {
+    	font-family: 'Boogaloo', cursive;
+    	margin-top: 25px;
+    }
+
+    </style>
+
+  </head>
+  <body>
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <div class="outer">
+      	<div class="container-fluid">
+      		<h1 class="text-center">INTRODUCTION</h1>
+
+      		<div class="intro">
+      			<div class="row">
+      				<div class="col-md-4 col-lg-4 border-right">
+		      			<img src="./img/start-up_s.png">
+		      			<h5 class="text-center">Idea</h5>
+			      		<p class="text-center">
+			      			PecuLab 隨機抽樣出三類資料</p>
+			      		<p class="text-center">
+			      			(其中2,3為我們重新設計的模型產出的假資料)</p>
+			      		<p class="text-center">
+			      			1. 真實的市場價格</p>
+			      		<p class="text-center">
+			      			2. local adversarial attack model output</p>
+			      		<p class="text-center">
+			      			3. Conditional AutoEncoder output</p>
+			      		<p class="text-center"> 
+			      			拋出給大家挑戰看看人類有沒有能力辨別出資料的真偽，
+						以驗證 PecuLab 所發展出的 financial vision data augmentation 是否有效</p>
+					</div>
+					<div class="col-md-4 col-lg-4 border-right">
+						<img src="./img/focus (1).png">
+						<h5 class="text-center">
+							Data augmentation importance</h5>
+
+						<p class="text-center">
+							因為在進行深度學習訓練時</p>
+						<p class="text-center">	
+							需要Big-Data以確保訓練時不會產生over-fitting的現象</p>
+						<p class="text-center">
+							但資料是驅使AI引擎全力運轉的新石油</p>
+						<p class="text-center">
+							個人開發者或普通公司很難擁有或者搜集完整需要的資料</p>
+						<p class="text-center">
+							因此使用Data augmentation（資料增強）技術</p>
+						<p class="text-center">
+							以補足資料不足而導致的over-fitting問題
+						</p>
+					</div>
+					<div class="col-md-4 col-lg-4">
+						<img src="./img/puzzle.png">
+						<h5 class="text-center">Game rules</h5>
+						<p class="text-center">
+							遊戲共有20題，每次會出現2張圖片</p>
+						<p class="text-center">
+							其中一個是真實資料的K線圖</p>
+						<p class="text-center">
+							另一個則是假資料</p>
+						<p class="text-center">
+							各類別皆隨機出現，位置不固定</p>
+						<p class="text-center">
+							玩家只要選出真實資料的圖就得分</p>
+						<p class="text-center">
+							此遊戲考驗對K線圖的熟悉程度，亦為重要實驗資料</p>
+						<p class="text-center">
+							玩家可以仔細思考後做出判斷</p>
+
+
+					</div>
+				</div>
+			</div>
+			<h3  class="text-center" id="ready">Ready to play?</h3>
+			<h6  class="text-center">Pick your identity</h6>
+
+        	<div class="buttons">
+              	<button type="button" class="btn btn-outline-dark" id="bt1" data-toggle="modal" data-target="#Modal" onclick="input_type('bt1')">Professional</button>
+              	<button type="button" class="btn btn-outline-dark" id="bt2" data-toggle="modal" data-target="#Modal" onclick="input_type('bt2')">Amateur</button>
+          	</div>
+      	</div>
+    </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          
+          <!-- Modal Header-->
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalLabel">ENTER YOUR NAME</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <!-- Modal Body-->
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="name">
+              </div>
+            </div>
+            <!-- Modal Footer-->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="enter" onclick="enter()">Start</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      function input_type(id){
+          window.type = document.getElementById(id).innerHTML;
+        };
+
+      function enter(){
+          var player = $('#Modal #name').val();
+          var type = window.type;
+          d = {};
+          d = {
+              data: player + ',' + type,
+              sheetUrl:"https://docs.google.com/spreadsheets/d/18RZBgewZ8inMHLjAolGZF3Dya6nf0SmIznN5F_-BWsg/edit#gid=0",
+              sheetTag:"sheet2"
+            };
+          $.get('https://script.google.com/macros/s/AKfycbxWnJY9G3Y6iwXh0ndv5hse-sH2rzm5H7n0ijG9KmcAI0JD6cw/exec', d);  
+          location.href = 'game.html';
+        };
+    </script>
+  
+  </body>
+</html>
