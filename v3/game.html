@@ -229,7 +229,7 @@
 
                 var svg = d3.select("#candlestick"+div)
                             .append("svg")
-                            .attr("id", "chart")
+                            .attr("class", "chart")
                             .attr("width", w)
                             .attr("height", h)
                             .attr("preserveAspectRatio", "xMinYMid") // responsive
@@ -254,7 +254,7 @@
 
                 // For Responsive
                 //   1. SVG: main candlestick
-                var chart = $("#chart"); //'$':jQuary
+                var chart = $(".chart"); //'$':jQuary
                 var aspect = chart.width() / chart.height();
                 var candlestick_block = chart.parent();
                 var targetWidth = candlestick_block.width();
