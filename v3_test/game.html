@@ -129,14 +129,16 @@
             }
 
 
+            /*
             .mobileHoverFix:hover .overlay,
             .mobileHoverFix.hover.overlay {
               background-color: black;
-            }
-            /*
-            html.can-touch .hovereffect:hover .overlay{
-                background: black; /* disable hover effect on touch devices 
             }*/
+
+
+            html.can-touch .hovereffect:hover .overlay{
+                background: none; /* disable hover effect on touch devices 
+
             
 
         </style>
@@ -196,11 +198,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
         <script>
-            /*
+            
             document.addEventListener('touchstart', function addtouchclass(e){ // first time user touches the screen
                 document.documentElement.classList.add('can-touch') // add "can-touch" class to document root using classList API
                 document.removeEventListener('touchstart', addtouchclass, false) // de-register touchstart event
-            }, false)*/
+            }, false)
         </script>
 
         <script>
@@ -428,6 +430,7 @@
             }
         </script>
         <script>
+            /*
             $(".hovereffect").on("click", function() {
               $(this).blur(); 
             });
@@ -436,7 +439,7 @@
             });
             $(".hovereffect").on("touchend", function() {
               $(this).addClass("mobileHoverFix");
-            });
+            });*/
         </script>
     </body>
 </html>
