@@ -23,6 +23,9 @@
                 margin-top: 10vh;
                 margin-bottom: 50px;
                 }
+            p {
+                display: none;
+            }
 
             .card {
                 width: 60vh;
@@ -128,16 +131,26 @@
               box-shadow: 0 0 5px #fff;
             }
 
-
-            /*.mobileHoverFix:hover,
+            @media (hover: none) {
+                /* behaviour for touch browsers */
+                p {
+                    display: block;
+                    margin-top: -10px;
+                }
+                .overlay{
+                    display: none;
+                }
+            }
+            
+            .mobileHoverFix:hover,
             .mobileHoverFix.hover {
-              background-color: white;
-              color: black;
-            }*/
+              background-color: rgba(0, 0, 0, 0.3);
+            }
+
             /*
             html.can-touch .hovereffect:hover .overlay{
-                background: black; /* disable hover effect on touch devices 
-            }*/
+                background: none; /* disable hover effect on touch devices*//*
+            } */  
             
 
         </style>
@@ -148,6 +161,7 @@
                 <h2 id="title">
                     Which one is the real image?
                 </h2>
+                <p class="text-center">Click the image you choose</p>
 
                 <!-- Plot candlestick here -->
                 <div class="container-fluid">
@@ -429,13 +443,22 @@
             }
         </script>
         <script>
-            /*
-            $(".info").on("touchstart", function() {
-              $(".overlay").hide();
+            /* for mobile device*/
+            $("#candlestick1").on("touchstart", function() {
+                $(this).addClass("mobileHoverFix");
             });
-            $(".card").on("click", function() {
-              $(".overlay").show();
-            });*/
+            $("#candlestick1").on("touchend", function() {
+                $(this).removeClass("mobileHoverFix");  
+                plot(0);
+            });
+            $("#candlestick2").on("touchstart", function() {
+              $(this).addClass("mobileHoverFix");
+            });
+            $("#candlestick2").on("touchend", function() {
+                $(this).removeClass("mobileHoverFix");  
+                plot(1);
+            });
+
         </script>
     </body>
 </html>
