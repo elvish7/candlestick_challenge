@@ -437,17 +437,17 @@
         <script>
             /* for mobile device*/
             $("#candlestick1").on("touchstart", function() {
-              $(this).removeClass("mobileHoverFix");
+                $(this).addClass("mobileHoverFix");
             });
             $("#candlestick1").on("touchend", function() {
-                $(this).addClass("mobileHoverFix");
+                $(this).removeClass("mobileHoverFix");  
                 plot(0);
             });
             $("#candlestick2").on("touchstart", function() {
-              $(this).removeClass("mobileHoverFix");
+              $(this).addClass("mobileHoverFix");
             });
             $("#candlestick2").on("touchend", function() {
-                $(this).addClass("mobileHoverFix");
+                $(this).removeClass("mobileHoverFix");  
                 plot(1);
             });
 
