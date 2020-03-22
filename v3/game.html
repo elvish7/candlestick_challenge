@@ -144,7 +144,7 @@
     <body>
         <div class="d-flex align-items-center">
             <div class="container-fluid">
-                <h2>
+                <h2 id="title">
                     Which one is the real image?
                 </h2>
 
@@ -428,16 +428,20 @@
             }
         </script>
         <script>
-            
+            $(".info").on("click", function() {
+              $("#title").click(); 
+            });
+            /*
             $(".info").on("click", function() {
               $(this).blur(); 
             });
+            
             $(".info").on("touchstart", function() {
               $(this).removeClass("mobileHoverFix");
             });
             $(".info").on("touchend", function() {
               $(this).addClass("mobileHoverFix");
-            });
+            });*/
         </script>
     </body>
 </html>
