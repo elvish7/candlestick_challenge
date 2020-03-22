@@ -135,6 +135,10 @@
                 }
             }
             
+            .mobileHoverFix:hover,
+            .mobileHoverFix.hover {
+              background-color: rgba(0, 0, 0, 0.4);
+            }
 
             /*
             html.can-touch .hovereffect:hover .overlay{
@@ -431,24 +435,20 @@
             }
         </script>
         <script>
-            /*
-            $(".hovereffect").on("click", function() {
-              $(this).blur(); 
-            });
-            $(".hovereffect").on("touchstart", function() {
+            /* for mobile device*/
+            $("#candlestick1").on("touchstart", function() {
               $(this).removeClass("mobileHoverFix");
             });
-            $(".hovereffect").on("touchend", function() {
-              $(this).addClass("mobileHoverFix");
-            });/*
-            $(".hovereffect").on("click", function() {
-              $(this).addClass("mobileHoverFix");
-            });*/
             $("#candlestick1").on("touchend", function() {
-              plot(0);
+                $(this).addClass("mobileHoverFix");
+                plot(0);
+            });
+            $("#candlestick2").on("touchstart", function() {
+              $(this).removeClass("mobileHoverFix");
             });
             $("#candlestick2").on("touchend", function() {
-              plot(1);
+                $(this).addClass("mobileHoverFix");
+                plot(1);
             });
 
         </script>
