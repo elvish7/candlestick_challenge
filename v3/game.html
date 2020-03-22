@@ -129,10 +129,11 @@
             }
 
 
-            .mobileHoverFix:hover ,
-            .mobileHoverFix.hover{
-              background-color: black;
-            }
+            /*.mobileHoverFix:hover,
+            .mobileHoverFix.hover {
+              background-color: white;
+              color: black;
+            }*/
             /*
             html.can-touch .hovereffect:hover .overlay{
                 background: black; /* disable hover effect on touch devices 
@@ -428,20 +429,23 @@
             }
         </script>
         <script>
-            $(".info").on("click", function() {
-              $("#title").click(); 
-            });
             /*
             $(".info").on("click", function() {
               $(this).blur(); 
             });
             
             $(".info").on("touchstart", function() {
-              $(this).removeClass("mobileHoverFix");
+              $(this).removeClass("overlay");
             });
             $(".info").on("touchend", function() {
               $(this).addClass("mobileHoverFix");
             });*/
+            $(".info").on("touchstart", function() {
+              $(".overlay").css("display", "block"); 
+            });
+            $(".info").on("touchend", function() {
+              $(".overlay").css("display", "none"); 
+            });
         </script>
     </body>
 </html>
