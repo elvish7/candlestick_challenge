@@ -128,14 +128,14 @@
               box-shadow: 0 0 5px #fff;
             }
 
-            html.can-touch .hovereffect a.info:hover{
+            html.can-touch .hovereffect:hover .overlay{
                 background: black; /* disable hover effect on touch devices */
             }
 
-            .mobileHoverFix:hover,
+            /*.mobileHoverFix:hover,
             .mobileHoverFix.hover {
               background-color: none;
-            }
+            }*/
             
 
         </style>
@@ -426,6 +426,7 @@
             }
         </script>
         <script>
+            /*
             $(".info").on("click", function() {
               $(this).blur(); 
             });
@@ -434,7 +435,7 @@
             });
             $(".info").on("touchend", function() {
               $(this).addClass("mobileHoverFix");
-            });
+            });*/
         </script>
     </body>
 </html>
