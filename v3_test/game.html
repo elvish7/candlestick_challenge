@@ -129,10 +129,10 @@
             }
 
 
-            
+            /*
             .mobileHoverFix:hover .overlay,
             .mobileHoverFix.hover.overlay{
-              background-color: transparent;
+              background-color: rgba(0, 0, 0, 0.4);
             }
 
             /*
@@ -430,15 +430,15 @@
             }
         </script>
         <script>
-            
+            /*
             $(".hovereffect").on("click", function() {
               $(this).blur(); 
-            });
+            });*/
             $(".hovereffect").on("touchstart", function() {
-              $(this).removeClass("mobileHoverFix");
+              $(".overlay").show();
             });
             $(".hovereffect").on("touchend", function() {
-              $(this).addClass("mobileHoverFix");
+              $(".overlay").hide();
             });/*
             $(".hovereffect").on("click", function() {
               $(this).addClass("mobileHoverFix");
