@@ -374,18 +374,21 @@
 
                 for (i = 0; i<n.length; i++){
                     if(n[i] == 1){ // real data
-                        var j = randomInteger(0,399)*10
+                        //var j = randomInteger(0,399)*10
+                        var j = randomInteger(0,199)*10
                         idx.push(j);
                         data_type.push('real');
                     }
                     else if(n[i] == 2){ // adversarial
-                        var j = randomInteger(400,799)*10;
+                        //var j = randomInteger(400,799)*10;
+                        var j = randomInteger(200,399)*10;
                         idx.push(j);
                         data_type.push('fake');
                         window.category = 'adversarial';
                     }
                     else{ // vae
-                        var j = randomInteger(800,1199)*10;
+                        //var j = randomInteger(800,1199)*10;
+                        var j = randomInteger(400,599)*10;
                         idx.push(j);
                         //console.log(idx)
                         data_type.push('fake');
