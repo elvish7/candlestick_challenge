@@ -1,7 +1,8 @@
 ## :video_game:Candlestick challenge
-This is a web-based game as the questionnaire to collect data for an finance data augmentation experiment .
+This is a web-based game as the questionnaire to collect data for an finance data augmentation experiment.  
 
 **Want to know if yor're better than machine? ->** [![name](./v2/img/lets-go.png)](https://elvish7.github.io/candlestick_challenge/v3/index.html)
+![img](./v2/img/cands.png)  
 ### Related resource
 * paper - [Data Augmentation for Deep Candlestick Learner](https://arxiv.org/abs/2005.06731)
 * code - [Model and experiments](https://github.com/pecu/FinancialVision)
